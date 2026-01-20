@@ -174,8 +174,19 @@ m3_brm
 
 #### 4) Model extensions and comparison ####
 
+## Some pretty straightforward things you can add to a model in brms 
+# -- Add nonlinear terms (gam)
+# -- Model the variance parameter(s) or other model terms 
+# -- Add "shrinkage priors" that can do some automatic variable selection 
+# -- Use pretty much any model distribution, plus deal with zero inflation, ordinal response variables, multivariate response variables. 
+# -- Add spatial random effects via a Gaussian Process prior 
+# -- Predict any quantity (e.g. predictions for new locations) 
+#    as part of model fitting to carry uncertainty directly into predictions. 
 
-## Turn it into a gam  
+# OF COURSE the more complex the model gets, the more likely we'll have issues.
+
+
+## Very short demo of turning our model into a gam  
 
 gam_brm = brm(rentsqm ~ s(area_std) + s(year_std) + (1 | district), data = d, 
               control = control_params, 
